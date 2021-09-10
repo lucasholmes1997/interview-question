@@ -37,6 +37,7 @@
                 }
             }
         }
+        console.log("Raw Grid:")
         PrintGrid(rawGrid);
         console.log(" ");
         ConvertGridEasy(rawGrid);
@@ -44,10 +45,17 @@
     }
 
     function ConvertGridEasy(rawGrid){
-            var convertedGrid = rawGrid;
+            var convertedGrid = [];
+            for(x = 0; x < rawGrid.length; x++){
+                convertedGrid[x] = [];
+                for(y = 0; y < rawGrid.length; y++){
+                    convertedGrid[x][y] = rawGrid[x][y];
+                }
+            }
+
             for(x = 0; x < rawGrid.length; x++){
                 for(y = 0; y < rawGrid.length; y++){
-                    if(x != 0 && x != rawGrid.length - 1  && y != 0 && y != rawGrid.length - 1)
+                    if(x != 0 && x != convertedGrid.length - 1  && y != 0 && y != convertedGrid.length - 1)
                     {
                         let top = rawGrid[x-1][y];
                         let left = rawGrid[x][y-1];
@@ -69,6 +77,12 @@
                     }
                 }
             }
+
+
+
+        console.log("Raw Grid:")
+        PrintGrid(rawGrid);
+        console.log(' ');
         console.log("Converted Grid:");
         PrintGrid(convertedGrid);
         console.log(" ");
